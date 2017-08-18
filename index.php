@@ -21,11 +21,6 @@
   <?php
       session_start();
 
-      $servername = "davisonit.cc";
-      $username = "sq_davison";
-      $password = "jkgfV95c29kXtU";
-      $dbname = "sq_davison";
-
       require 'dbConnect.php';
 
       if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -39,7 +34,7 @@
         $active = $row['active'];
 
         $count = mysqli_num_rows($result);
-        // If result matched $myusername and $mypassword, table row must be 1 row
+        // If result matched $myusername and $mypassword,table row must be 1 row.
 
         if($count == 1) {
            //session_register("myusername");
@@ -47,7 +42,8 @@
            header("Location:signinSuccess.php");
         }else {
            $error = "Your Login Name or Password is invalid";
-           echo "Your Login Name or Password is invalid";
+           //echo "Your Login Name or Password is invalid";
+           echo "<script type='text/javascript'>alert('Your Login Name or Password is invalid!')</script>";
         }
       }
   ?>
