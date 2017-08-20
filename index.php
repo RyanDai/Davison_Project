@@ -39,7 +39,7 @@
         if($count == 1) {
            //session_register("myusername");
            $_SESSION['UserID'] = $row['UserID'];
-           header("home.html");
+           header("Location:home.html");
         }else {
            $error = "Your Login Name or Password is invalid";
            //echo "Your Login Name or Password is invalid";
