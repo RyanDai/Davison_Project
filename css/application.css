@@ -25813,3 +25813,7 @@ p.tableWords{
 h4.controllerTopLeft{
   float:left;
 }
+
+.table_search_form{
+  margin-left: 750px;
+}
