@@ -157,7 +157,7 @@
 
                 <li class="divider"></li>
 
-                <li><p class="navWords">You are super user!</p></li>
+                <li><p class="navWords">super user</p></li>
 
 
                 <li class="hidden-xs dropdown">
@@ -198,33 +198,28 @@
 
     <!--Add controllers table-->
     <div class="content container">
+
+      <div class="table_search_form">
+          <form action="#">
+            <input type="text">
+            <input type="submit" value="Search" class = "searchButtonWords">
+          </form>
+      </div>
+
       <h2 class="page-title">Home</h2>
+
+
+
       <div class="row">
           <div class="col-md-12">
               <section class="widget">
-                  <header>
-                      <h10 class="controllerTopLeft">Controllers</h10>
-
-                      <div class="table_search_form">
-                          <form action="#">
-                            <input type="text">
-                            <input type="submit" value="Search" class = "searchButtonWords">
-                          </form>
-                      </div>
-
-                      <br>
-                      <br>
-                      <br>
-
-                  </header>
-
 
 
                   <div class="panel-group" id="accordion3">
                       <div class="panel">
                           <div class="panel-heading">
                               <a class="accordion-toggle collapsed" data-toggle="collapse" href="#collapseOneTwo">
-                                  Client: ATO
+                                ATO
                               </a>
                           </div>
                           <div id="collapseOneTwo" class="panel-collapse collapse">
@@ -242,28 +237,17 @@
 
 
                                       <section class="widget">
-                                          <div class="widget-table-overflow">
+                                          <div>
                                               <table class="table table-striped table-lg mt-sm mb-0 sources-table">
-                                                  <thead>
-                                                  <tr>
-                                                      <th >Controller</th>
-                                                      <th class="source-col-header">Address</th>
-                                                      <th>Status</th>
-                                                      <th class="hidden-xs">Warnings</th>
-                                                      <th class="chart-col-header hidden-xs">Curve</th>
-                                                      <th>Events</th>
-                                                      <th>Definition</th>
-                                                      <th>Download</th>
-                                                  </tr>
-                                                  </thead>
+
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
                                                       <td>71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
-                                                      <td>1</td>
+                                                      <td>1 alarm</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>90</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -271,9 +255,9 @@
                                                       <td>Controller 20</td>
                                                       <td>21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>2</td>
+                                                      <td>2 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>50</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -281,9 +265,9 @@
                                                       <td>Controller 30</td>
                                                       <td>148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>3</td>
+                                                      <td>3 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>18</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -303,28 +287,17 @@
 
 
                                       <section class="widget">
-                                          <div class="widget-table-overflow">
+                                          <div>
                                               <table class="table table-striped table-lg mt-sm mb-0 sources-table">
-                                                  <thead>
-                                                  <tr>
-                                                      <th >Controller</th>
-                                                      <th class="source-col-header">Address</th>
-                                                      <th>Status</th>
-                                                      <th class="hidden-xs">Warnings</th>
-                                                      <th class="chart-col-header hidden-xs">Curve</th>
-                                                      <th>Events</th>
-                                                      <th>Definition</th>
-                                                      <th>Download</th>
-                                                  </tr>
-                                                  </thead>
+
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
                                                       <td>71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
-                                                      <td>1</td>
+                                                      <td>1 alarm</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>140</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -332,9 +305,9 @@
                                                       <td>Controller 20</td>
                                                       <td>21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>26</td>
+                                                      <td>26 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>50</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -342,9 +315,9 @@
                                                       <td>Controller 30</td>
                                                       <td>148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>34</td>
+                                                      <td>34 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>18</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -365,14 +338,14 @@
                       <div class="panel">
                           <div class="panel-heading">
                               <a class="accordion-toggle collapsed" data-toggle="collapse" href="#collapseTwoTwo">
-                                  Client: Centrelink
+                                  Centrelink
                               </a>
                           </div>
                           <div id="collapseTwoTwo" class="panel-collapse collapse">
                               <div class="panel-body">
 
 
-                                <div class="panel">
+                                <div class="panel-heading">
                                   <a class="accordion-toggle collapsed" data-toggle="collapse"
                                      data-parent="#menu-levels-collapse" href="#sub-menu-4-collapse"><i class="fa fa-bank"></i> Site:SYD</a>
                                   <ul id="sub-menu-4-collapse" class="panel-collapse collapse">
@@ -380,28 +353,17 @@
 
 
                                     <section class="widget">
-                                          <div class="widget-table-overflow">
+                                          <div >
                                               <table class="table table-striped table-lg mt-sm mb-0 sources-table">
-                                                  <thead>
-                                                  <tr>
-                                                      <th >Controller</th>
-                                                      <th class="source-col-header">Address</th>
-                                                      <th>Status</th>
-                                                      <th class="hidden-xs">Warnings</th>
-                                                      <th class="chart-col-header hidden-xs">Curve</th>
-                                                      <th>Events</th>
-                                                      <th>Definition</th>
-                                                      <th>Download</th>
-                                                  </tr>
-                                                  </thead>
+
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
                                                       <td>71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
-                                                      <td>12</td>
+                                                      <td>12 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>84</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -409,9 +371,9 @@
                                                       <td>Controller 20</td>
                                                       <td>21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>93</td>
+                                                      <td>93 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>75</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -419,9 +381,9 @@
                                                       <td>Controller 30</td>
                                                       <td>148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>45</td>
+                                                      <td>45 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>63</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -436,35 +398,24 @@
                                   </ul>
                               </div>
 
-                              <div class="panel">
+                              <div class="panel-heading">
                                   <a class="accordion-toggle collapsed" data-toggle="collapse"
                                      data-parent="#menu-levels-collapse" href="#sub-menu-5-collapse"><i class="fa fa-bank"></i> Site:BNE</a>
                                   <ul id="sub-menu-5-collapse" class="panel-collapse collapse">
 
 
                                     <section class="widget">
-                                          <div class="widget-table-overflow">
+                                          <div >
                                               <table class="table table-striped table-lg mt-sm mb-0 sources-table">
-                                                  <thead>
-                                                  <tr>
-                                                      <th >Controller</th>
-                                                      <th class="source-col-header">Address</th>
-                                                      <th>Status</th>
-                                                      <th class="hidden-xs">Warnings</th>
-                                                      <th class="chart-col-header hidden-xs">Curve</th>
-                                                      <th>Events</th>
-                                                      <th>Definition</th>
-                                                      <th>Download</th>
-                                                  </tr>
-                                                  </thead>
+
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
                                                       <td>71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
-                                                      <td>1</td>
+                                                      <td>1 alarm</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>13</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -472,9 +423,9 @@
                                                       <td>Controller 20</td>
                                                       <td>21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>2</td>
+                                                      <td>2 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>50</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -482,9 +433,9 @@
                                                       <td>Controller 30</td>
                                                       <td>148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>65</td>
+                                                      <td>65 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>48</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -507,13 +458,13 @@
                       <div class="panel">
                           <div class="panel-heading">
                               <a class="accordion-toggle collapsed" data-toggle="collapse" href="#collapseThreeTwo">
-                                  Client: ABC Property
+                                  ABC Property
                               </a>
                           </div>
                           <div id="collapseThreeTwo" class="panel-collapse collapse">
                               <div class="panel-body">
 
-                                  <div class="panel">
+                                  <div class="panel-heading">
                                     <a class="accordion-toggle collapsed" data-toggle="collapse"
                                        data-parent="#menu-levels-collapse" href="#sub-menu-6-collapse"><i class="fa fa-bank"></i> Site:BNE</a>
                                     <ul id="sub-menu-6-collapse" class="panel-collapse collapse">
@@ -522,28 +473,17 @@
 
 
                                       <section class="widget">
-                                          <div class="widget-table-overflow">
+                                          <div >
                                               <table class="table table-striped table-lg mt-sm mb-0 sources-table">
-                                                  <thead>
-                                                  <tr>
-                                                      <th >Controller</th>
-                                                      <th class="source-col-header">Address</th>
-                                                      <th>Status</th>
-                                                      <th class="hidden-xs">Warnings</th>
-                                                      <th class="chart-col-header hidden-xs">Curve</th>
-                                                      <th>Events</th>
-                                                      <th>Definition</th>
-                                                      <th>Download</th>
-                                                  </tr>
-                                                  </thead>
+
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
                                                       <td>71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
-                                                      <td>1</td>
+                                                      <td>1 alarm</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>90</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -551,9 +491,9 @@
                                                       <td>Controller 34</td>
                                                       <td>21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>6</td>
+                                                      <td>6 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>134</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -561,9 +501,9 @@
                                                       <td>Controller 74</td>
                                                       <td>148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
-                                                      <td>3</td>
+                                                      <td>3 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
-                                                      <td>49</td>
+                                                      <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
@@ -584,7 +524,30 @@
               </section>
           </div>
       </div>
+
+
+      <h2 class="page-title">Maps</h2>
+
+      <section class="widget large">
+
+          <div class="body">
+              <div class="map">
+                  <div id="basic"></div>
+              </div>
+          </div>
+      </section>
+
+
+
+          
+
+
+
     </div>
+
+
+
+
 
 
 
@@ -606,6 +569,21 @@
     <script src="js/settings.js"></script>
 
 
+    <!-- map js -->
+    <!-- page specific scripts -->
+        <!-- page specific libs -->
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="lib/gmap3/dist/gmap3.min.js"></script>
+        <script src="lib/jqvmap/dist/jquery.vmap.min.js"></script>
+        <script src="lib/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="lib/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
+        <script src="lib/jqvmap/dist/maps/continents/jquery.vmap.australia.js"></script>
+        <script src="lib/jqvmap/dist/maps/jquery.vmap.europe.js"></script>
+        <script src="lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+        <!-- page application js -->
+        <script src="js/component-maps.js"></script>
+
+
 
 
 
@@ -619,6 +597,8 @@
     <!-- page application js -->
     <script src="js/tables-static.js"></script>
     <script src="js/index.js"></script>
+
+
 
 
   </body>

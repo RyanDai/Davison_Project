@@ -23454,7 +23454,8 @@ fieldset[disabled] .form-control.input-transparent {
 /**          MAPS                **/
 /**********************************/
 .map {
-  height: 100%;
+  height: 110%;
+
 }
 
 .map * {
@@ -25814,13 +25815,8 @@ p.navWords{
   color:white;
 }
 
-
-h10.controllerTopLeft{
-  float:left;
-  font-size: 22px;
-}
-
 .table_search_form{
+  padding-top: 15px;
   float:right;
 }
 
