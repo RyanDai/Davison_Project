@@ -104,7 +104,7 @@
 
 
 
-                <li><p id="currentTime" class="navWords"></p></li>
+                <li><p id="currentTime" class="navWords hidden-xs"></p></li>
                 <script>
                     function getTime(){
                       d = new Date();
@@ -157,10 +157,10 @@
 
                 <li class="divider"></li>
 
-                <li><p class="navWords">super user</p></li>
+                <li><p class="navWords hidden-xs">super user</p></li>
 
 
-                <li class="hidden-xs dropdown">
+                <li class="dropdown">
                     <a href="#" title="Account" id="account"
                        class="dropdown-toggle"
                        data-toggle="dropdown">
@@ -184,7 +184,7 @@
 
 
                 <li class="hidden-xs">
-                  <li><p class="navWords">Log out</p></li>
+                  <li><p class="navWords hidden-xs">Log out</p></li>
                   <li>
                     <a href="index.php"><i class="glyphicon glyphicon-off"></i></a>
                   </li>
@@ -243,17 +243,42 @@
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
-                                                      <td>71 ABC St Toowong</td>
+                                                      <td class = "hidden-xs">71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
                                                       <td>1 alarm</td>
-                                                      <td><i class="fa fa-area-chart"></i></td>
+                                                      <td>
+                                                        <div class="dropdown">
+                                                            <a href="#" title="Messages" id="messages"
+                                                               class="dropdown-toggle"
+                                                               data-toggle="dropdown">
+                                                                <i class="fa fa-area-chart"></i>
+                                                            </a>
+                                                            <ul id="messages-menu" class="dropdown-menu messages" role="menu">
+                                                                <li role="presentation">
+                                                                    <a href="#" >
+                                                                        <div class="text">
+                                                                            First message.
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li role="presentation">
+                                                                    <a href="#" >
+                                                                        <div class="text">
+                                                                            Second message.
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                              </ul>
+                                                        </div>
+
+                                                      </td>
                                                       <td><i class="fa fa-warning"></i></td>
                                                       <td><span class="glyphicon glyphicon-book"></span></td>
                                                       <td><span class="glyphicon glyphicon-download-alt"></span></td>
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 20</td>
-                                                      <td>21 Quo Road City</td>
+                                                      <td class = "hidden-xs">21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>2 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -263,7 +288,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 30</td>
-                                                      <td>148 Central St Toowong</td>
+                                                      <td class = "hidden-xs">148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>3 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -293,7 +318,7 @@
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
-                                                      <td>71 ABC St Toowong</td>
+                                                      <td class = "hidden-xs">71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
                                                       <td>1 alarm</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -303,7 +328,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 20</td>
-                                                      <td>21 Quo Road City</td>
+                                                      <td class = "hidden-xs">21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>26 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -313,7 +338,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 30</td>
-                                                      <td>148 Central St Toowong</td>
+                                                      <td class = "hidden-xs">148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>34 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -359,7 +384,7 @@
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
-                                                      <td>71 ABC St Toowong</td>
+                                                      <td class = "hidden-xs">71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
                                                       <td>12 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -369,7 +394,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 20</td>
-                                                      <td>21 Quo Road City</td>
+                                                      <td class = "hidden-xs">21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>93 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -379,7 +404,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 30</td>
-                                                      <td>148 Central St Toowong</td>
+                                                      <td class = "hidden-xs">148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>45 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -411,7 +436,7 @@
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
-                                                      <td>71 ABC St Toowong</td>
+                                                      <td class = "hidden-xs">71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
                                                       <td>1 alarm</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -421,7 +446,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 20</td>
-                                                      <td>21 Quo Road City</td>
+                                                      <td class = "hidden-xs">21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>2 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -431,7 +456,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 30</td>
-                                                      <td>148 Central St Toowong</td>
+                                                      <td class = "hidden-xs">148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>65 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -479,7 +504,7 @@
                                                   <tbody>
                                                   <tr>
                                                       <td>Controller 10</td>
-                                                      <td>71 ABC St Toowong</td>
+                                                      <td class = "hidden-xs">71 ABC St Toowong</td>
                                                       <td><span class="label label-danger">Offline</span></td>
                                                       <td>1 alarm</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -489,7 +514,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 34</td>
-                                                      <td>21 Quo Road City</td>
+                                                      <td class = "hidden-xs">21 Quo Road City</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>6 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -499,7 +524,7 @@
                                                   </tr>
                                                   <tr>
                                                       <td>Controller 74</td>
-                                                      <td>148 Central St Toowong</td>
+                                                      <td class = "hidden-xs">148 Central St Toowong</td>
                                                       <td><span class="label label-success">Online</span></td>
                                                       <td>3 alarms</td>
                                                       <td><i class="fa fa-area-chart"></i></td>
@@ -539,10 +564,6 @@
 
 
 
-          
-
-
-
     </div>
 
 
@@ -572,7 +593,7 @@
     <!-- map js -->
     <!-- page specific scripts -->
         <!-- page specific libs -->
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyAq-ODy3J9WQWCSIIyX4_YXhRn8o9-bys0&sensor=true"></script>
         <script src="lib/gmap3/dist/gmap3.min.js"></script>
         <script src="lib/jqvmap/dist/jquery.vmap.min.js"></script>
         <script src="lib/jqvmap/dist/maps/jquery.vmap.world.js"></script>

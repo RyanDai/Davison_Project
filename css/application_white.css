@@ -1996,6 +1996,7 @@ pre code {
   .container {
     width: 750px;
   }
+
 }
 
 @media (min-width: 992px) {
@@ -6549,7 +6550,7 @@ button.list-group-item-danger.active:focus {
 }
 
 .panel-group {
-  margin-bottom: 18px;
+  margin-bottom: 5px;
 }
 
 .panel-group .panel {
@@ -22595,11 +22596,17 @@ a.text-gray-lighter:focus {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  padding: 12px 17px;
+  padding: 12px 12px;
   color: #606060;
   background: #ffffff;
   margin-bottom: 30px;
   position: relative;
+}
+
+@media (max-width: 767px) {
+  .widget {
+    padding: 0px 0px;
+  }
 }
 
 .widget.normal {
