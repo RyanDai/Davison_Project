@@ -22443,7 +22443,7 @@ a.text-gray-lighter:focus {
 .side-nav .panel-collapse.collapse {
   display: block;
   position: relative;
-  height: 0;
+  height: 0px;
   overflow: hidden;
   -webkit-transition: height 0.35s ease;
   -o-transition: height 0.35s ease;
