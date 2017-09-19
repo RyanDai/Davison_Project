@@ -210,6 +210,7 @@
 
 
 
+
       <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 
@@ -243,6 +244,7 @@
                   <div class="panel-group" id="accordion3">
 
                         <?php
+                          $controllerIndex = 0;
                           require 'dbConnect.php';
                           $companyQuery = "Select * from Company";
                           $companyResult = $conn->query($companyQuery);
@@ -252,13 +254,13 @@
 
                                 <div class="panel">
                                   <div class="panel-heading">
-                                      <a class="accordion-toggle collapsed" data-toggle="collapse" href="#<?php echo $companyRow['CompanyID'];?>">
+                                      <a class="accordion-toggle collapsed" data-toggle="collapse" href="#Company<?php echo $companyRow['CompanyID']?>">
                                         <?php echo $companyRow['CompanyName']?>
                                       </a>
                                   </div>
 
                                   <!--<p>'.$companyRow['CompanyID'].'</p>-->
-                                  <div id="<?php echo $companyRow['CompanyID'];?>" class="panel-collapse collapse">
+                                  <div id="Company<?php echo $companyRow['CompanyID'];?>" class="panel-collapse collapse">
                                       <div class="panel-body">
 
                                         <?php
@@ -270,42 +272,51 @@
 
                                             <div class="panel-heading">
                                                 <a class="accordion-toggle collapsed" data-toggle="collapse"
-                                                    href="#<?php echo $siteRow['SiteID'];?>">
+                                                    href="#Site<?php echo $siteRow['SiteID'];?>">
                                                    <i class="fa fa-bank"></i>
                                                    <?php echo $siteRow['SiteName']?>
                                                  </a>
 
-                                                 <ul id="<?php echo $siteRow['SiteID'];?>" class="panel-collapse collapse">
+                                                 <ul id="Site<?php echo $siteRow['SiteID'];?>" class="panel-collapse collapse">
 
                                                    <section class="widget">
                                                        <div>
                                                          <?php
+
                                                          $sID = $siteRow['SiteID'];
                                                          $controllerQuery = "Select * from PanelInfo, SitePanels Where
                                                          PanelInfo.PanelID = SitePanels.PanelID AND SitePanels.SiteID = '$sID'";
                                                          $controllerResult = $conn->query($controllerQuery);
                                                          if($controllerResult->num_rows > 0){
-                                                           while($controllerRow = $controllerResult->fetch_assoc()){  ?>
+                                                           while($controllerRow = $controllerResult->fetch_assoc()){
+                                                             $controllerIndex = $controllerIndex +1;
+
+
+                                                             ?>
+
 
                                                              <table class="table table-striped table-lg mt-sm mb-0 sources-table">
 
                                                                  <tbody>
                                                                  <tr>
-                                                                     <td><?php echo $controllerRow['PanelName']?></td>
-                                                                     <td class = "hidden-xs"><?php echo $controllerRow['Location']?></td>
+                                                                     <td class="noDisplay" id="companyID<?php echo $controllerIndex?>"><?php echo $companyRow['CompanyID']?></td>
+                                                                     <td class="noDisplay" id="siteID<?php echo $controllerIndex?>"><?php echo $siteRow['SiteID'];?></td>
+                                                                     <td id="cName<?php echo $controllerIndex?>"><?php echo $controllerRow['PanelName']?></td>
+                                                                     <td class = "hidden-xs" id="cLocation<?php echo $controllerIndex?>"><?php echo $controllerRow['Location']?></td>
 
                                                                      <?php
                                                                         if($controllerRow['Status'] == 0){ ?>
-                                                                          <td><span class="label label-danger">Offline</span></td>
+                                                                          <td id="cStatus<?php echo $controllerIndex?>"><span class="label label-danger">Offline</span></td>
                                                                       <?php  } ?>
                                                                       <?php
                                                                          if($controllerRow['Status'] == 1){ ?>
-                                                                           <td><span class="label label-success">Online</span></td>
+                                                                           <td id="cStatus<?php echo $controllerIndex?>"><span class="label label-success">Online</span></td>
                                                                        <?php  } ?>
 
-                                                                     <td><?php echo $controllerRow['alarmsTotal']?> alarms</td>
+                                                                     <td id="cAlarms<?php echo $controllerIndex?>"><?php echo $controllerRow['alarmsTotal']?> alarms</td>
                                                                      <td><i class="fa fa-area-chart"></i></td>
                                                                      <td><i class="fa fa-warning"></i></td>
+
 
                                                                      <td>
                                                                        <div class="dropdown">
@@ -424,26 +435,99 @@
               </section>
           </div>
       </div>
-
-      <button onclick = drop()>testButton</button>
+<!--
+      <button onclick = drop() id="testButt">testButton</button>
       <script>
         function drop(){
-          $('#1').collapse('toggle');
+          $('#Site100').collapse('toggle');
         }
 
       </script>
-
+-->
 
       <h2 class="page-title">Maps</h2>
 
+
       <section class="widget large">
 
-          <div class="body">
-              <div class="map">
-                  <div id="basic"></div>
-              </div>
-          </div>
+        <div id="map" style="width:100%;height:320px"></div>
+
+        <script>
+
+
+
+
+        function myMap() {
+
+        var myCenter = new google.maps.LatLng(27.4698, 153.0251);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {center: myCenter, zoom: 12};
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+        for(var i = 1; i < <?php echo $controllerIndex ?> + 1; i++){
+          var cAddress = (document.getElementById("cLocation" + i)).textContent;
+          var cName = (document.getElementById("cName" + i)).textContent;
+          var cStatus = (document.getElementById("cStatus" + i)).textContent;
+          var cAlarms = (document.getElementById("cAlarms" + i)).textContent;
+          var companyID = (document.getElementById("companyID" + i)).textContent;
+          var siteID = (document.getElementById("siteID" + i)).textContent;
+          var index = i;
+
+
+          var controller = { "address":cAddress, "name":cName, "status":cStatus, "alarms":cAlarms,
+            "companyID":companyID, "siteID":siteID, "index":index};
+          var geocoder = new google.maps.Geocoder();
+          geocodeAddress(geocoder, map, controller);
+          }
+        }
+
+
+        function geocodeAddress(geocoder, resultsMap, controller) {
+          var infowindow;
+          infowindow = new google.maps.InfoWindow();
+
+          geocoder.geocode({'address': controller.address}, function(results, status) {
+            if (status === 'OK') {
+              resultsMap.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+              });
+
+
+              google.maps.event.addListener(marker,'click',function() {
+                var content = controller.name + '<br>' + "Status: " + controller.status + '<br>' + "Alarms: " + controller.alarms;
+                content += '<br>' + "Address: " + controller.address;
+                infowindow.setContent(content);
+                infowindow.open(resultsMap,marker);
+              });
+
+              google.maps.event.addListener(marker, "dblclick", function (e) {
+                  var siteID = controller.siteID;
+                  var companyID = controller.companyID;
+                  $('#Company'+companyID).collapse('show');
+                  $('#Site'+siteID).collapse('show');
+                  window.location.hash = '#cName'+ controller.index;
+
+              });
+
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+
+
+
+        }
+
+        </script>
+        <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0n3sGi1zJRmtGRuzguppVmxHtqKGE8Mk&callback=myMap"
+                  type="text/javascript"></script>
+
+
+
       </section>
+
 
 
 
@@ -477,16 +561,17 @@
     <!-- map js -->
     <!-- page specific scripts -->
         <!-- page specific libs -->
-        <script src="https://maps.google.com/maps/api/js?key=AIzaSyAq-ODy3J9WQWCSIIyX4_YXhRn8o9-bys0&sensor=true"></script>
-        <script src="lib/gmap3/dist/gmap3.min.js"></script>
+        <!--<script src="https://maps.google.com/maps/api/js?key=AIzaSyAq-ODy3J9WQWCSIIyX4_YXhRn8o9-bys0&sensor=true"></script>-->
+        <!--<script src="lib/gmap3/dist/gmap3.min.js"></script>-->
+        <!--
         <script src="lib/jqvmap/dist/jquery.vmap.min.js"></script>
         <script src="lib/jqvmap/dist/maps/jquery.vmap.world.js"></script>
         <script src="lib/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
         <script src="lib/jqvmap/dist/maps/continents/jquery.vmap.australia.js"></script>
-        <script src="lib/jqvmap/dist/maps/jquery.vmap.europe.js"></script>
-        <script src="lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+        <script src="lib/jqvmap/dist/maps/jquery.vmap.europe.js"></script>-->
+        <!--<script src="lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>-->
         <!-- page application js -->
-        <script src="js/component-maps.js"></script>
+        <!--<script src="js/component-maps.js"></script>-->
 
 
 
