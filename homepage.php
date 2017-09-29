@@ -201,17 +201,17 @@
 
       <div class="table_search_form">
           <form action="#">
-            <input type="text">
+            <input type="text" id="mySearch" onkeyup="search()" style="color: black;">
             <input type="submit" value="Search" class = "searchButtonWords">
           </form>
       </div>
 
+
+
+
+
       <h2 class="page-title">Home</h2>
-
-
-
-
-      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 
 
       <!--<script>
@@ -237,6 +237,13 @@
         });
       </script>-->
 
+      <!--<button onclick=test() id="tbtb">testButton</button>-->
+      <script>
+        function test(){
+          document.getElementById("ATO").style.display = "none";
+        }
+      </script>
+
       <div class="row">
           <div class="col-md-12">
               <section class="widget">
@@ -253,7 +260,7 @@
                             while($companyRow = $companyResult->fetch_assoc()){ ?>
 
                                 <div class="panel">
-                                  <div class="panel-heading">
+                                  <div class="panel-heading" id="<?php echo $companyRow['CompanyName']?>">
                                       <a class="accordion-toggle collapsed" data-toggle="collapse" href="#Company<?php echo $companyRow['CompanyID']?>">
                                         <?php echo $companyRow['CompanyName']?>
                                       </a>
@@ -261,7 +268,7 @@
 
                                   <!--<p>'.$companyRow['CompanyID'].'</p>-->
                                   <div id="Company<?php echo $companyRow['CompanyID'];?>" class="panel-collapse collapse">
-                                      <div class="panel-body">
+                                      <div class="panel-body" id="body<?php echo $companyRow['CompanyID'];?>">
 
                                         <?php
                                         $comID = $companyRow['CompanyID'];
@@ -270,7 +277,7 @@
                                         if($siteResult->num_rows > 0){
                                           while($siteRow = $siteResult->fetch_assoc()){ ?>
 
-                                            <div class="panel-heading">
+                                            <div class="panel-heading" id="<?php echo $companyRow['CompanyName'].$siteRow['SiteName']?>">
                                                 <a class="accordion-toggle collapsed" data-toggle="collapse"
                                                     href="#Site<?php echo $siteRow['SiteID'];?>">
                                                    <i class="fa fa-bank"></i>
@@ -298,9 +305,12 @@
                                                              <table class="table table-striped table-lg mt-sm mb-0 sources-table">
 
                                                                  <tbody>
-                                                                 <tr>
+                                                                 <tr id="c<?php echo $controllerIndex?>">
                                                                      <td class="noDisplay" id="companyID<?php echo $controllerIndex?>"><?php echo $companyRow['CompanyID']?></td>
                                                                      <td class="noDisplay" id="siteID<?php echo $controllerIndex?>"><?php echo $siteRow['SiteID'];?></td>
+                                                                     <td class="noDisplay" id="companyName<?php echo $controllerIndex?>"><?php echo $companyRow['CompanyName']?></td>
+                                                                     <td class="noDisplay" id="siteName<?php echo $controllerIndex?>"><?php echo $siteRow['SiteName'];?></td>
+
                                                                      <td id="cName<?php echo $controllerIndex?>"><?php echo $controllerRow['PanelName']?></td>
                                                                      <td class = "hidden-xs" id="cLocation<?php echo $controllerIndex?>"><?php echo $controllerRow['Location']?></td>
 
@@ -435,15 +445,50 @@
               </section>
           </div>
       </div>
-<!--
-      <button onclick = drop() id="testButt">testButton</button>
-      <script>
-        function drop(){
-          $('#Site100').collapse('toggle');
-        }
 
+      <script>
+
+        function search(){
+          var input, filter;
+          input = document.getElementById("mySearch");
+          filter = input.value.toUpperCase();
+          //document.getElementById("tbtb").innerHTML = filter;
+
+          //at first, fisplay nothing.
+          for(var i = 1; i < <?php echo $controllerIndex ?> + 1; i++){
+            var companyName = (document.getElementById("companyName" + i)).textContent;
+            var siteName = (document.getElementById("siteName" + i)).textContent;
+            document.getElementById(companyName+siteName).style.display = "none";
+            document.getElementById(companyName).style.display = "none";
+
+          }
+          //display related after user input something.
+          for(var i = 1; i < <?php echo $controllerIndex ?> + 1; i++){
+            var cAddress = (document.getElementById("cLocation" + i)).textContent;
+            var cName = (document.getElementById("cName" + i)).textContent;
+            var companyName = (document.getElementById("companyName" + i)).textContent;
+            var siteName = (document.getElementById("siteName" + i)).textContent;
+            var companyID = (document.getElementById("companyID" + i)).textContent;
+            var siteID = (document.getElementById("siteID" + i)).textContent;
+
+            //check if each row contains input
+            if ((cAddress.toUpperCase().indexOf(filter) > -1) ||
+                (cName.toUpperCase().indexOf(filter) > -1) ||
+                (companyName.toUpperCase().indexOf(filter) > -1) ||
+                (siteName.toUpperCase().indexOf(filter) > -1)) {
+
+
+                  document.getElementById(companyName).style.display = "";
+                  document.getElementById(companyName+siteName).style.display = "";
+                  document.getElementById("c" + i).style.display = "";
+
+                } else {
+                  //$('#Company'+companyID).collapse('hide');
+                  document.getElementById("c" + i).style.display = "none";
+                }
+          }
+        }
       </script>
--->
 
       <h2 class="page-title">Maps</h2>
 
@@ -464,6 +509,7 @@
         var mapOptions = {center: myCenter, zoom: 12};
         var map = new google.maps.Map(mapCanvas, mapOptions);
 
+        //get information from html main table
         for(var i = 1; i < <?php echo $controllerIndex ?> + 1; i++){
           var cAddress = (document.getElementById("cLocation" + i)).textContent;
           var cName = (document.getElementById("cName" + i)).textContent;
@@ -473,7 +519,7 @@
           var siteID = (document.getElementById("siteID" + i)).textContent;
           var index = i;
 
-
+          //constructe object to pass into function geocodeAddress()
           var controller = { "address":cAddress, "name":cName, "status":cStatus, "alarms":cAlarms,
             "companyID":companyID, "siteID":siteID, "index":index};
           var geocoder = new google.maps.Geocoder();
@@ -494,7 +540,7 @@
                 position: results[0].geometry.location
               });
 
-
+              //click event, display info window
               google.maps.event.addListener(marker,'click',function() {
                 var content = controller.name + '<br>' + "Status: " + controller.status + '<br>' + "Alarms: " + controller.alarms;
                 content += '<br>' + "Address: " + controller.address;
@@ -502,6 +548,7 @@
                 infowindow.open(resultsMap,marker);
               });
 
+              //double click event, jump to table
               google.maps.event.addListener(marker, "dblclick", function (e) {
                   var siteID = controller.siteID;
                   var companyID = controller.companyID;
